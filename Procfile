@@ -1,1 +1,1 @@
-web: bin/start-pgbouncer-stunnel gunicorn timeline.wsgi --log-file -
+web: gunicorn timeline.wsgi --log-file -
