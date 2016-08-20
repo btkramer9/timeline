@@ -21,6 +21,7 @@ DATABASES['default'] = {
     'NAME': 'timeline_db',
     'USER': 'postgres',
     'PASSWORD': 'password',
+    'PORT': '5432',
 }
 
 # Static files (CSS, JavaScript, Images)
