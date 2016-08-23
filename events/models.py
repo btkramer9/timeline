@@ -1,9 +1,10 @@
 from django.db import models
+from datetime import datetime
 
 
 class Collection(models.Model):
 	collection_name = models.CharField(max_length=200)
-	pub_date = models.DateTimeField('date published')
+	pub_date = models.DateTimeField('date published', editable=False, default=datetime.now)
 
 	def __str__(self):
 		return self.collection_name
@@ -13,6 +14,7 @@ class Collection(models.Model):
 
 class Memory(models.Model):
 	collection = models.ForeignKey(Collection, on_delete=models.CASCADE)
+	pub_date = models.DateTimeField('date published', editable=False, default=datetime.now)
 	memory_name = models.CharField(max_length=200)
 	memory_details = models.TextField()
 	memory_date = models.DateTimeField()
@@ -24,6 +26,7 @@ class Memory(models.Model):
 class Phase(models.Model):
 	# TODO: possibly link phase begining and end to two specific memories
 	collection = models.ForeignKey(Collection, on_delete=models.CASCADE)
+	pub_date = models.DateTimeField('date published', editable=False, default=datetime.now)
 	phase_name = models.CharField(max_length=200)
 	phase_details = models.TextField()
 	phase_start_date = models.DateTimeField()

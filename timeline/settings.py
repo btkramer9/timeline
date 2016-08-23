@@ -16,13 +16,7 @@ import dj_database_url
 db_from_env = dj_database_url.config(conn_max_age=500)
 
 DATABASES = {}
-#DATABASES['default']['ENGINE'] = 'django.db.backends.postgresql_psycopg2'
-DATABASES['default'] = {
-    'NAME': 'timeline_db',
-    'USER': 'postgres',
-    'PASSWORD': 'password',
-    'PORT': '5432',
-}
+DATABASES['default'] = dj_database_url.config()
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.9/howto/static-files/
@@ -53,7 +47,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'l0y@$1$qk=-ra1z&mzc8)@-1v0d++ak#y=syb3@y%&mx^d-$9b'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 

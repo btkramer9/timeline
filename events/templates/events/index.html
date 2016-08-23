@@ -1,0 +1,32 @@
+{% if latest_collection_list %}
+	<h1>Collections</h1>
+    <ul>
+    {% for collection in latest_collection_list %}
+        <li><a href="/events/{{ collection.id }}/">{{ collection.collection_name }}</a></li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No collections are available.</p>
+{% endif %}
+
+{% if latest_phase_list %}
+	<h1>Phases</h1>
+    <ul>
+    {% for phase in latest_phase_list %}
+        <li><a href="/events/phase/{{ phase.id }}/">{{ phase.phase_name }}</a></li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No phases are available.</p>
+{% endif %}
+
+{% if latest_memory_list %}
+	<h1>Memories</h1>
+    <ul>
+    {% for memory in latest_memory_list %}
+        <li><a href="/events/memory/{{ memory.id }}/">{{ memory.memory_name }}</a></li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No memories are available.</p>
+{% endif %}
