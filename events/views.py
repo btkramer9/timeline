@@ -1,5 +1,9 @@
-from django.shortcuts import render
 from .models import Collection, Phase, Memory
+
+from django.shortcuts import get_object_or_404, render
+from django.http import HttpResponseRedirect
+# from django.urls import reverse
+from django.views import generic
 
 
 def index(request):
@@ -16,8 +20,11 @@ def index(request):
 
 	return render(request, 'events/index.html', context)
 
-def collection_detail(request, collection_id):
-    return HttpResponse("You're looking at collection %s." % collection_id)
+class CollectionView(generic.DetailView):
+	model = Collection
+
+# def collection_detail(request, collection_id):
+#    return HttpResponse("You're looking at collection %s." % collection_id)
 
 def phase_detail(request, phase_id):
     return HttpResponse("You're looking at phase %s." % phase_id)
