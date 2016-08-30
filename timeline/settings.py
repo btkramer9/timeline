@@ -16,7 +16,7 @@ import dj_database_url
 db_from_env = dj_database_url.config(conn_max_age=500)
 
 DATABASES = {}
-DATABASES['default'] = dj_database_url.config()
+DATABASES['default'] = dj_database_url.update(db_from_env)
 
 # Database
 # https://docs.djangoproject.com/en/1.9/ref/settings/#databases
@@ -31,6 +31,8 @@ DATABASES = {
         'PORT': '',
     }
 }
+
+# DATABASES['default'] = dj_database_url.update(db_from_env)
 
 
 # Static files (CSS, JavaScript, Images)
