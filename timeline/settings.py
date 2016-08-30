@@ -16,10 +16,11 @@ import dj_database_url
 db_from_env = dj_database_url.config(conn_max_age=500)
 
 DATABASES = {}
-DATABASES['default'] = dj_database_url.update(db_from_env)
+#DATABASES['default'].update(db_from_env)
 
 # Database
 # https://docs.djangoproject.com/en/1.9/ref/settings/#databases
+
 
 DATABASES = {
     'default': {
@@ -27,12 +28,16 @@ DATABASES = {
         'NAME': 'timeline_db',
         'USER': 'postgres',
         'PASSWORD': 'password',
-        'HOST': 'localhost',
-        'PORT': '',
+#        'HOST': 'localhost',
+#        'PORT': '',
     }
 }
 
-# DATABASES['default'] = dj_database_url.update(db_from_env)
+# print DATABASES['default']
+
+DATABASES['default'].update(db_from_env)
+
+# print DATABASES['default']
 
 
 # Static files (CSS, JavaScript, Images)
