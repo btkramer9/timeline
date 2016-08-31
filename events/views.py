@@ -32,4 +32,3 @@ def phase_detail(request, phase_id):
 
 def memory_detail(request, memory_id):
     return HttpResponse("You're looking at memory %s." % memory_id)
-
