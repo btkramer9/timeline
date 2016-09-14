@@ -3,8 +3,8 @@
 {% block collections %}
 
 {% if collection_list %}
-	<h1>Collections</h1>
-    <ul>
+	<h2 class="text-center">Collections</h2>
+    <ul class="text-center">
     {% for collection in collection_list %}
         <li><a href="/collections/{{ collection.id }}/">{{ collection.collection_name }}</a></li>
     {% endfor %}

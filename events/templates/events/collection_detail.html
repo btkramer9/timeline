@@ -10,7 +10,11 @@
       <div class="events">
         <ol>
           {% for memory in user_memories %}
-          <li><a href="#0" data-date="{{memory.memory_date}}">{{memory.memory_name}}</a></li>
+            {% if user_memories.0 == memory %}
+              <li><a href="#0" data-date="{{memory.memory_date|date:'d/m/Y'}}" class="selected">{{memory.memory_name}}</a></li>
+            {% else %}
+              <li><a href="#0" data-date="{{memory.memory_date|date:'d/m/Y'}}">{{memory.memory_name}}</a></li>
+            {% endif %}
           {% endfor %}
         </ol>
 
@@ -27,14 +31,26 @@
   <div class="events-content">
     <ol>
       {% for memory in user_memories %}
-      <li data-date="{{memory.memory_date}}">
-        <h2>{{memory.memory_name}}</h2>
-        <em>{{memory.memory_date}}</em>
-        <p>{{memory.memory_details}}</p>
-      </li>
+        {% if user_memories.0 == memory %}
+          <li data-date="{{memory.memory_date|date:'d/m/Y'}}" class="selected">
+            <h2>{{memory.memory_name}}</h2>
+            <em>{{memory.memory_date}}</em>
+            <p>{{memory.memory_details}}</p>
+          </li>
+        {% else %}
+          <li data-date="{{memory.memory_date|date:'d/m/Y'}}">
+            <h2>{{memory.memory_name}}</h2>
+            <em>{{memory.memory_date}}</em>
+            <p>{{memory.memory_details}}</p>
+          </li>
+        {% endif %}
       {% endfor %}
     </ol>
   </div> <!-- .events-content -->
 </section>
+
+<script src="/static/js/jquery-2.1.4.js"></script>
+<script src="/static/js/jquery.mobile.custom.min.js"></script>
+<script src="/static/js/main.js"></script> <!-- Resource jQuery -->
 
 {% endblock %}

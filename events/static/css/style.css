@@ -3,6 +3,7 @@
 Primary style 
 
 -----------------------------*/
+
 *, *::after, *::before {
 	box-sizing: border-box;
 }
@@ -15,7 +16,7 @@ body {
 	font-size: 1.6rem;
 	font-family: "Fira Sans", sans-serif;
 	color: #383838;
-	backgroud-color: #f8f8f8;
+	background-color: #f8f8f8;
 }
 
 a {
@@ -28,6 +29,10 @@ a {
 Main components
 
 -----------------------------*/
+body {
+  background-color: #f8f8f8;
+}
+
 .cd-horizontal-timeline {
   opacity: 0;
   margin: 2em auto;
