@@ -1,0 +1,11 @@
+[
+{
+  "model": "events.collection",
+  "pk": 1,
+  "fields": {
+    "user": 1,
+    "collection_name": "School",
+    "pub_date": "2016-09-13T20:51:04.589Z"
+  }
+}
+]

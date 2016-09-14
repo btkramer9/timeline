@@ -8,21 +8,32 @@ from django.views import generic
 
 def index(request):
 
-	latest_collection_list = Collection.objects.order_by('-pub_date')[:5]
-	latest_phase_list = Phase.objects.order_by('-pub_date')[:5]
-	latest_memory_list = Memory.objects.order_by('-pub_date')[:5]
+	user_id = request.user.id
+
+	user_collections = Collection.objects.filter(user=user_id)
+	collection_list = user_collections.order_by('-pub_date')
 
 	context = {
-		'latest_collection_list': latest_collection_list,
-		'latest_phase_list': latest_phase_list,
-		'latest_memory_list': latest_memory_list,
+		'collection_list': collection_list,
 	}
 
 	return render(request, 'events/index.html', context)
 
-class CollectionView(generic.DetailView):
-	model = Collection
-	template_name = 'events/collection_detail.html'
+def collection_detail(request, pk):
+
+	user_id = request.user.id
+
+	user_collection = Collection.objects.get(pk=pk)
+	# user_phases = Phase.objects.filter(collection=pk)
+	user_memories = Memory.objects.filter(collection=pk).order_by('memory_date')
+
+	context = {
+		'collection_list': user_collection,
+		# 'user_phases': user_phases,
+		'user_memories': user_memories,
+	}
+
+	return render(request, 'events/collection_detail.html', context)
 
 # def collection_detail(request, collection_id):
 #    return HttpResponse("You're looking at collection %s." % collection_id)

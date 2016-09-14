@@ -20,8 +20,9 @@ from django.http import HttpResponseRedirect
 from . import views
 
 urlpatterns = [
-	url(r'^events/', include('events.urls')),
-	url(r'^$', views.home),
+	url(r'^collections/', include('events.urls')),
+    url(r'^profile/', views.profile, name='profile'),
+	url(r'^$', views.home, name='home'),
     url(r'^admin/', admin.site.urls),
     url('', include('social.apps.django_app.urls', namespace='social')),
     url('', include('django.contrib.auth.urls', namespace='auth')),

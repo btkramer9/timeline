@@ -1,8 +1,10 @@
 from django.db import models
 from datetime import datetime
+from django.contrib.auth.models import User
 
 
 class Collection(models.Model):
+	user = models.ForeignKey(User, editable=False)
 	collection_name = models.CharField(max_length=200)
 	pub_date = models.DateTimeField('date published', editable=False, default=datetime.now)
 
@@ -13,6 +15,7 @@ class Collection(models.Model):
 
 
 class Memory(models.Model):
+	user = models.ForeignKey(User, editable=False)
 	collection = models.ForeignKey(Collection, on_delete=models.CASCADE)
 	pub_date = models.DateTimeField('date published', editable=False, default=datetime.now)
 	memory_name = models.CharField(max_length=200)
@@ -24,6 +27,7 @@ class Memory(models.Model):
 
 
 class Phase(models.Model):
+	user = models.ForeignKey(User, editable=False)
 	# TODO: possibly link phase beginning and end to two specific memories
 	collection = models.ForeignKey(Collection, on_delete=models.CASCADE)
 	pub_date = models.DateTimeField('date published', editable=False, default=datetime.now)
