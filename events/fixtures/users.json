@@ -1,1 +1,38 @@
 [
+{
+  "model": "auth.user",
+  "pk": 1,
+  "fields": {
+    "password": "pbkdf2_sha256$30000$2reQvYZYdZmi$n8Xg4cE1AxTUL/Ik+ZTNbCxwST8BC/e8gHTBm0Q6s2c=",
+    "last_login": "2016-09-14T23:32:16.362Z",
+    "is_superuser": true,
+    "username": "btkramer9",
+    "first_name": "",
+    "last_name": "",
+    "email": "btkramer9@gmail.com",
+    "is_staff": true,
+    "is_active": true,
+    "date_joined": "2016-09-13T20:47:23.264Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 2,
+  "fields": {
+    "password": "pbkdf2_sha256$30000$m9UUB3Iun66r$Z29CwVTHsGO9Zu7kaj7xl3g761yR8kvvNJIQoghfe8s=",
+    "last_login": "2016-09-14T22:37:57.153Z",
+    "is_superuser": true,
+    "username": "not_btkramer9",
+    "first_name": "",
+    "last_name": "",
+    "email": "",
+    "is_staff": true,
+    "is_active": true,
+    "date_joined": "2016-09-13T21:01:26Z",
+    "groups": [],
+    "user_permissions": []
+  }
+}
+]
